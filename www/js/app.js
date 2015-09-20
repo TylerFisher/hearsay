@@ -41,7 +41,7 @@ var onShareClick = function() {
 
 var onShareModalShow = function() {
     var $modal = $(this);
-    $modal.find('.modal-body video').attr('src', 'http://127.0.0.1:8000/assets/' + currentId + '.mp4');
+    $modal.find('.modal-body video').attr('src', 'http://127.0.0.1:8001/hearsay/assets/' + currentId + '.mp4');
     $modal.find('.modal-body textarea').text(currentQuote + ' #audiohack');
 }
 
