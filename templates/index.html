@@ -1,56 +1,78 @@
 {% extends '_base.html' %}
 
-{% block header_content %}
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{ COPY.content.project_name|smarty }}</h1>
-                <h2>{{ COPY.content.lorem_ipsum|smarty }}</h2>
-            </div>
+{% block content %}
+    <div class="title-wrapper">
+        <div class="title">
+            <h3>559: Captain's Log</h3>
         </div>
     </div>
-</header>
-{% endblock %}
 
+    <div class="transcript">
+        <h2>Act One: Cookies And Monsters</h2>
 
-{% block content %}
-<h1>{{ COPY.content.project_name }}</h1>
+        <p><strong>Ira Glass</strong> Act 1, "Cookies and Monsters." So part of what's interesting about reading captain's logs is then going back and piecing together the true story that they're only sort of telling. And that is what PJ Vogt does in this next story. He starts picking something apart and asking questions, and he ends up somewhere very different from where he starts. Here's PJ.</p>
 
-<div id="story-meta">
-    <p class="byline">by <span>{{ COPY.content.byline }}</span></p>
-    <p class="dateblock">
-        <span class="date">{{ COPY.content.pubdate }}</span>
-        <span class="time"> {{ COPY.content.pubtime }}</span>
-    </p>
-</div>
+        <p><strong>PJ Vogt</strong> I've got a friend, let's call him Dale. Dale has a Gmail address that's pretty generic, like dsmith@gmail.com. And people with email addresses like these get a lot of emails that just aren't meant for them, like email wrong numbers. And this happens to him all the time.</p>
 
-<a class="comment-button comment-button-bubble comment-drawer-toggle" href="javascript:">
-    <span class="comment-count"></span>
-</a>
+        <p>Last time I saw him, he'd just gotten an email written completely in Spanish from a kid somewhere asking if he could turn in some work late. Dale's a nice guy, but he likes to play pranks. He likes to mess with people. So he answers the emails. Here's one he got a while back.</p>
 
-<a class="comment-button comment-button-article comment-drawer-toggle" data-toggle="modal" data-backdrop="static" data-target="#share-modal">
-    <span class="comment-count"></span>
-    <span class="comment-label">Share / Discuss</span>
-</a>
+        <p><strong>Dale</strong> I think it started off, "Hey, ladies. To all Calgary area district commissioners and district cookie advisers." And then it started talking about how they had a bunch of stale cookies that they didn't know what to do with, and we've got to move them off the shelves. And if they're past the expiration date, then we can't use them in the next cookie campaign.</p>
 
-<h2 class="knockout-example">Example COPY list</h2>
-<dl>
-    {% for row in COPY.example_list %}
-    <dt>{{ row.term }}</dt><dd>{{ row.definition }}</dd>
-    {% endfor %}
-</dl>
+        <p><strong>PJ Vogt</strong> The emails continue. And Dale learns that the world of professional cookie advising, it's surprisingly bureaucratic. At the top, there's a national cookie adviser. But beneath her, there are provincial cookie advisers who report up. And then beneath them, there are district cookie advisers.</p>
 
-<h2 class="knockout-example">JST example</h2>
-<p id="template-example"></p>
-{% endblock %}
+        <p>Dale has no idea what's going on here. But he decides the best thing he could do would be to reply with an intentionally stupid email, detailing a bunch of asinine solutions to the stale cookie problem. He suggests the advisers Sharpie over the expiration dates on the packages. He suggests they eat all the stale cookies themselves.</p>
 
+        <p><strong>Dale</strong> In my mind, I was thinking, no one's going to believe this. What a stupid email to write to somebody. Who would hire a person with suggestions like these?</p>
 
-{% block wide_content %}
-<div class="row">
-    <div class="col-md-12">
-        <h2 class="knockout-example">{{ COPY.content.footer_title }}</h2>
-        <p>{{ COPY.content.lorem_ipsum }}</p>
+        <p><strong>PJ Vogt</strong> Cynthia, who's the Calgary area cookie adviser, responds to Dale's email with complete polite cheerfulness. She sends him a cookie freshness calculator to help him sort his stale cookies from his fresh cookies. So Dale responds with even stupider messages. He was trying to make it more obvious that he was just kidding.</p>
+
+        <p><strong>Dale</strong> <a href="#" class="share-quote" data-toggle="popover" data-content="<a onclick='onShareClick' class='share'><i class='fa fa-facebook'>&nbsp;&nbsp;<i class='fa fa-twitter'></i></a>" data-id="fireworks">I said, "What's the status on the cookies? Yarr. Me so hungry,"</a> with a picture of Cookie Monster. And I think she responded something along lines of, "Those orders were supposed to go in a month ago. Or did I misunderstand your question?"</p>
+
+        <p><strong>PJ Vogt</strong> Rather than clarifying, Dale asks her, why are we even in the cookie advising business? He says, his clients, they're all about chocolate bars now.</p>
     </div>
-</div>
+
+    <div id="intro-modal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Welcome to Hearsay!</h4>
+          </div>
+          <div class="modal-body">
+            <p>Login with Twitter</p>
+          </div>
+          <div class="modal-footer">
+            <a href="/hearsay/twitterlogin" class="btn btn-primary">Login with Twitter</a>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->   
+
+    <div id="share-modal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Share Preview</h4>
+          </div>
+          <div class="modal-body">
+            <textarea></textarea>
+            <video controls></video>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-share">Share</a>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->   
+{% endblock %}
+
+{% block extra_foot_js %}
+<script type="text/javascript">
+    {% if access_token %}
+    var ACCESS_TOKEN = '{{ access_token }}'
+    var ACCESS_SECRET = '{{ access_secret }}'
+    {% else %}
+    var ACCESS_TOKEN = null;
+    var ACCESS_SECRET = null;
+    {% endif %}
+</script>
 {% endblock %}

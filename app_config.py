@@ -19,7 +19,7 @@ NAMES
 """
 # Project name to be used in urls
 # Use dashes, not underscores!
-PROJECT_SLUG = '$NEW_PROJECT_SLUG'
+PROJECT_SLUG = 'hearsay'
 
 # Project name to be used in file paths
 PROJECT_FILENAME = '$NEW_PROJECT_FILENAME'
