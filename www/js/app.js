@@ -42,7 +42,7 @@ var onShareClick = function() {
 var onShareModalShow = function() {
     var $modal = $(this);
     $modal.find('.modal-body video').attr('src', 'http://127.0.0.1:8001/hearsay/assets/' + currentId + '.mp4');
-    $modal.find('.modal-body textarea').append(' #audiohack audiohackathon.com');
+    $modal.find('.modal-body textarea').append(' #audiohack http://www.thisamericanlife.org/radio-archives/episode/559/captains-log');
 }
 
 var onShareBtnClick = function(e) {
